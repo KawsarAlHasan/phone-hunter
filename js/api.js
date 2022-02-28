@@ -1,0 +1,1 @@
+console.log('api and es6');
