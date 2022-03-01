@@ -1,7 +1,14 @@
+// toggleSpinner
+const toggleSpinner = displayStyle =>{
+    document.getElementById('spinner').style.display = displayStyle;
+}
 
 // search field
 const searchPhone = () =>{
     const searchText = document.getElementById('search-field').value;
+    // toggleSpinner
+    toggleSpinner('block');
+
     loadPhone(searchText);
     document.getElementById('search-field').value = '';
 }
@@ -31,9 +38,19 @@ const displayPhone = phone =>{
             <h3>${mobile.phone_name}</h3>
             <img src="${mobile.image}"/>
             <h4>Brand: ${mobile.brand}</h4>
-            <button class="btn btn-outline-secondary ms-1">More Details</button>
+            <button onclick="clickMoreDetails()" class="btn btn-outline-secondary ms-1">More Details</button>
         `
         allDiv.appendChild(div);
         container.appendChild(allDiv);
     });
+    // toggleSpinner
+    toggleSpinner('none');
+}
+
+// more details 
+const clickMoreDetails = () =>{
+    const moreDetails = document.getElementById('more-details');
+    moreDetails.innerHTML = `
+    <p>hello</p>
+    `
 }

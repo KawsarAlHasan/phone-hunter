@@ -14,6 +14,7 @@
     
   <!-- container start -->
   <div class="container">
+    
     <h1 class="text-center mt-4">Mobile <span class="text-danger">Hunter</span></h1>
 
     <!-- input and button start -->
@@ -21,7 +22,19 @@
         <input id="search-field" type="text" class="form-control" placeholder="Search Phone">
         <button onclick="searchPhone()" class="btn btn-outline-secondary ms-1" type="button">Button</button>
     </div>
-    <!-- input and button end -->
+    <!-- input and button start -->
+
+    <!-- spinner start -->
+    <div id="spinner" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...
+    </div>
+    <!-- spinner end -->
+
+    <!-- More Details start -->
+    <div id="more-details">
+    </div>
+    <!-- More Details end -->
 
       <!-- result start -->
       <div id="result" class="row g-3">
