@@ -1,3 +1,11 @@
+
+// search field
+const searchPhone = () =>{
+    const searchText = document.getElementById('search-field').value;
+    loadPhone(searchText);
+    document.getElementById('search-field').value = '';
+}
+
 // loadPhone
 const loadPhone = searchText => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
