@@ -34,6 +34,8 @@ const displayPhone = phoneData =>{
     }else{
         const noPhoneFound = document.getElementById('no-phone-found');
         noPhoneFound.innerText = "";
+        
+        // highet 20 resust 
         const phonses = phoneData.slice(0, 20);
         phonses.forEach(mobile => {
         const allDiv = document.createElement('div');
