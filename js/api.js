@@ -19,22 +19,23 @@ const loadPhone = searchText => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => displayPhone(data))
+    .then(data => displayPhone(data.data))
 }
 loadPhone('apple');
 
 // displayPhone
-const displayPhone = phone =>{
+const displayPhone = phoneData =>{
     const container = document.getElementById('result');
     container.textContent = '';
-    const phoneData = phone.data;
     if(phoneData.length == 0){
+        // No phone found
         const noPhoneFound = document.getElementById('no-phone-found');
         noPhoneFound.innerText = "You haven't entered anything";
     }else{
         const noPhoneFound = document.getElementById('no-phone-found');
         noPhoneFound.innerText = "";
-        phoneData.forEach(mobile => {
+        const phonses = phoneData.slice(0, 20);
+        phonses.forEach(mobile => {
         const allDiv = document.createElement('div');
         allDiv.classList.add('col-md-4');
         const div = document.createElement('div');
@@ -59,6 +60,7 @@ const displayPhone = phone =>{
 // more details 
 const moreDetails = document.getElementById("more-details");
 
+// MoreDetails fetch
 const seeMoreDetails = id => {
     const url = ` https://openapi.programming-hero.com/api/phone/${id}`;
     fetch(url)
@@ -68,7 +70,6 @@ const seeMoreDetails = id => {
 
 // Show Detailes Fun
 const moreInfoFun = (moreInfo) => {
-    console.log(moreInfo);
     moreDetails.textContent = "";
     const div = document.createElement("div");
     div.classList.add("card");
